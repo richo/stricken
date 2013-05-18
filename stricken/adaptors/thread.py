@@ -57,13 +57,13 @@ class Thread(BaseProtocol):
 
     @property
     def gref(self):
-        gref = Gref(station.store, CHANNEL, self.uuid)
+        return Gref(self.station.store, CHANNEL, self.uuid)
 
-    def _write_object(obj):
+    def _write_object(self, obj):
         return self.station.write(obj.as_object())
 
-    def _update_gref(gref, tips, parents):
-        station.update_gref(gref, tips, parents)
+    def _update_gref(self, gref, tips, parents):
+        self.station.update_gref(gref, tips, parents)
 
     def write_root(self):
         root = RootObject(str(self.uuid), CHANNEL, self.protocol)
