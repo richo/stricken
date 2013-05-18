@@ -5,3 +5,16 @@ sys.path.insert(0, "./groundstation")
 
 from groundstation.node import Node
 from groundstation.station import Station
+
+import stricken
+
+myself = Node()
+station = Station.from_env(myself)
+
+def main(argv):
+    app = stricken.make_stricken(station)
+    app.run('localhost', 8500)
+
+
+if __name__ == "__main__":
+    main(sys.argv)
