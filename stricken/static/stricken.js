@@ -1,5 +1,8 @@
 function create_message(el) {
-  // TODO
+  // el should be a uuid - name pair
+  var li = document.createElement("li");
+  li.text(el[1]);
+  li.setAttribute
 }
 
 load_messages = (function() {

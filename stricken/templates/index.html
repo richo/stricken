@@ -24,8 +24,18 @@
               </div>
           </div>
       </div>
-      <div id="messages">
-      </div>
+      <div style="height: 40px;"></div>
+      <div class="container-fluid">
+          <div class="span3">
+              <div class="sidebar-nav">
+                  <ul class="nav nav-list" id="messages">
+                      <li class="nav-header">messages<span class="pull-right"><a id="new-message">New</a></span></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="span9" id="message-content">
+          </div>
+        </div>
   </body>
   <script>
       $('#reload_messages').on('click', function() {

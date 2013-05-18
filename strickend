@@ -13,7 +13,7 @@ station = Station.from_env(myself)
 
 def main(argv):
     app = stricken.make_stricken(station)
-    app.run('localhost', 8500)
+    app.run('localhost', 8500, True)
 
 
 if __name__ == "__main__":
