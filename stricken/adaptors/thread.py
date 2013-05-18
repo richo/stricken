@@ -2,6 +2,7 @@ import json
 import uuid
 from groundstation.protocols import BaseProtocol
 
+from groundstation.station import NonExistantChannel
 from groundstation.gref import Gref, Tip
 
 from groundstation.objects.root_object import RootObject
@@ -14,7 +15,14 @@ class ThreadFactory(object):
         self.station = station
         self.protocol = protocol
 
-    def new(self, title, body, user)
+    def threads(self):
+        try:
+            grefs = [gref.as_dict() for gref in self.station.grefs(CHANNEL)]
+        except NonExistantChannel:
+            return []
+        return grefs
+
+    def new(self, title, body, user):
         thread = Thread(self.station, uuid.uuid1())
         thread.protocol = self.protocol
         root = thread.write_root()

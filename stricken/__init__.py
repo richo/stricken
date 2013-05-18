@@ -1,13 +1,8 @@
 import json
 from flask import Flask, render_template, request
-from stricken.thread import Thread, ThreadFactory
+from stricken.adaptors.thread import Thread, ThreadFactory
 
 PROTOCOL = "richo@psych0tik.net:stricken:0.0.0"
-
-
-def threads_json(station, channel, escaped=False):
-    grefs = [gref.as_dict() for gref in station.grefs(channel)]
-    return json.dumps(grefs)
 
 
 def make_stricken(station):
@@ -20,7 +15,7 @@ def make_stricken(station):
 
     @app.route("/threads")
     def list_channels():
-        return channels_json(station)
+        return json.dumps(thread_factory.threads())
 
     @app.route("/threads/new", methods=["POST"])
     def create_thread():
