@@ -5,6 +5,7 @@ from stricken.adaptors.thread import Thread, ThreadFactory
 PROTOCOL = "richo@psych0tik.net:stricken:0.0.0"
 
 # HAX
+import base64
 import uuid
 from groundstation.objects.root_object_pb2 import RootObject
 from groundstation.objects.update_object_pb2 import UpdateObject
@@ -29,7 +30,7 @@ def make_stricken(station):
         root.channel = "channel"
         root.protocol = PROTOCOL
 
-        return root.SerializeToString()
+        return base64.b64encode(root.SerializeToString())
 
     @app.route("/hax/update_object")
     def _():
@@ -37,7 +38,7 @@ def make_stricken(station):
         update.parents.extend(["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"])
         update.data = "data"
 
-        return update.SerializeToString()
+        return base64.b64encode(update.SerializeToString())
 
     @app.route("/threads/new", methods=["POST"])
     def create_thread():
