@@ -20,3 +20,20 @@ load_messages = (function() {
     });
   };
 })();
+
+function get_object(name, cb) {
+  $.ajax("/objects/" + name, {
+    complete: function(data) {
+      // TODO Get the object type from the backend
+      cb(load_from_base64(Stricken.PB.UpdateObject, data.responseText));
+    }
+  });
+}
+
+function load_from_base64(object, text) {
+    var obj = new object();
+    var stream = new PROTO.Base64Stream(text);
+
+    obj.ParseFromStream(stream);
+    return obj;
+}
