@@ -1,3 +1,5 @@
+"pbj-0.0.3"
+package ProtoJSTest.PB;
 message RootObject {
     required string id = 1;
     required string channel = 2;

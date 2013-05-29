@@ -1,5 +1,10 @@
 "use strict";
-.UpdateObject = PROTO.Message(".UpdateObject",{
+/** @suppress {duplicate}*/var ProtoJSTest;
+if (typeof(ProtoJSTest)=="undefined") {ProtoJSTest = {};}
+if (typeof(ProtoJSTest.PB)=="undefined") {ProtoJSTest.PB = {};}
+ProtoJSTest.PB._PBJ_Internal="pbj-0.0.3";
+
+ProtoJSTest.PB.UpdateObject = PROTO.Message("ProtoJSTest.PB.UpdateObject",{
 	parents: {
 		options: {},
 		multiplicity: PROTO.repeated,

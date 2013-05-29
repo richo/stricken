@@ -1,5 +1,10 @@
 "use strict";
-.RootObject = PROTO.Message(".RootObject",{
+/** @suppress {duplicate}*/var ProtoJSTest;
+if (typeof(ProtoJSTest)=="undefined") {ProtoJSTest = {};}
+if (typeof(ProtoJSTest.PB)=="undefined") {ProtoJSTest.PB = {};}
+ProtoJSTest.PB._PBJ_Internal="pbj-0.0.3";
+
+ProtoJSTest.PB.RootObject = PROTO.Message("ProtoJSTest.PB.RootObject",{
 	id: {
 		options: {},
 		multiplicity: PROTO.required,
