@@ -1,5 +1,5 @@
 "pbj-0.0.3"
-package ProtoJSTest.PB;
+package Stricken.PB;
 message UpdateObject {
     repeated bytes parents = 1;
     required bytes data = 2;

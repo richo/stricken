@@ -1,10 +1,10 @@
 "use strict";
-/** @suppress {duplicate}*/var ProtoJSTest;
-if (typeof(ProtoJSTest)=="undefined") {ProtoJSTest = {};}
-if (typeof(ProtoJSTest.PB)=="undefined") {ProtoJSTest.PB = {};}
-ProtoJSTest.PB._PBJ_Internal="pbj-0.0.3";
+/** @suppress {duplicate}*/var Stricken;
+if (typeof(Stricken)=="undefined") {Stricken = {};}
+if (typeof(Stricken.PB)=="undefined") {Stricken.PB = {};}
+Stricken.PB._PBJ_Internal="pbj-0.0.3";
 
-ProtoJSTest.PB.RootObject = PROTO.Message("ProtoJSTest.PB.RootObject",{
+Stricken.PB.RootObject = PROTO.Message("Stricken.PB.RootObject",{
 	id: {
 		options: {},
 		multiplicity: PROTO.required,
