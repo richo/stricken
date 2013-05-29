@@ -4,6 +4,11 @@ from stricken.adaptors.thread import Thread, ThreadFactory
 
 PROTOCOL = "richo@psych0tik.net:stricken:0.0.0"
 
+# HAX
+import uuid
+from groundstation.objects.root_object_pb2 import RootObject
+from groundstation.objects.update_object_pb2 import UpdateObject
+
 
 def make_stricken(station):
     app = Flask(__name__)
@@ -16,6 +21,23 @@ def make_stricken(station):
     @app.route("/threads")
     def list_channels():
         return json.dumps(thread_factory.threads())
+
+    @app.route("/hax/root_object")
+    def _():
+        root = RootObject()
+        root.id = str(uuid.uuid1())
+        root.channel = "channel"
+        root.protocol = PROTOCOL
+
+        return root.SerializeToString()
+
+    @app.route("/hax/update_object")
+    def _():
+        update = UpdateObject()
+        update.parents.extend(["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"])
+        update.data = "data"
+
+        return update.SerializeToString()
 
     @app.route("/threads/new", methods=["POST"])
     def create_thread():
