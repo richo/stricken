@@ -1,8 +1,8 @@
-function create_message(el) {
+function create_message(thread) {
   // el should be a uuid - name pair
   var li = document.createElement("li");
-  li.text(el[1]);
-  li.setAttribute
+  $(li).text(thread.identifier);
+  return li;
 }
 
 load_messages = (function() {
@@ -13,8 +13,8 @@ load_messages = (function() {
     $.ajax(messages_url, {
       dataType: "json",
       success: function(data, stat, xhr) {
-        _.each(data, function(el) {
-          messages.append(create_message(el));
+        _.each(data, function(thread) {
+          messages.append(create_message(thread));
         });
       }
     });
