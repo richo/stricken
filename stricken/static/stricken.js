@@ -1,6 +1,28 @@
 /* Load a thread into the content frame */
 function message_clicked_cb(thread) {
   return function(evt) {
+    // create an object cache. This can eventually be global.
+    var threads = {};
+    var object, callback;
+
+    _.each(thread.tips, function(tip) {
+      threads[tip] = threads[tip] || []; // TODO Throw errors
+
+      function callback(obj) {
+        threads[tip].push(obj);
+
+        if (obj.message_type_ === "Stricken.PB.UpdateObject") {
+          _.each(obj.parents, function(par) {
+            get_object(par, callback);
+          });
+        } else { // We're a root object
+          console.log("Found the root object " + obj.toString());
+          // TODO Work out if we're the last one, draw some stuff on the DOM
+        }
+      }
+
+      object = get_object(tip, callback);
+    });
     console.log("Someone clicked on " + thread.toString());
   };
 }
