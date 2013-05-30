@@ -22,10 +22,16 @@ load_messages = (function() {
 })();
 
 function get_object(name, cb) {
+  var types = {
+    "update": Stricken.PB.UpdateObject,
+    "root": Stricken.PB.RootObject
+  };
+
   $.ajax("/objects/" + name, {
-    complete: function(data) {
-      // TODO Get the object type from the backend
-      cb(load_from_base64(Stricken.PB.UpdateObject, data.responseText));
+    success: function(data) {
+      var type = types[data.type];
+
+      cb(load_from_base64(type, data.object));
     }
   });
 }
