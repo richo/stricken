@@ -1,7 +1,9 @@
 function create_message(thread) {
   // el should be a uuid - name pair
   var li = document.createElement("li");
-  $(li).text(thread.identifier);
+  $(li).text(thread.identifier).on('click', function(evt) {
+    console.log("Someone clicked on " + thread.toString());
+  });
   return li;
 }
 
