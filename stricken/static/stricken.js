@@ -32,7 +32,8 @@ function get_object(name, cb) {
       var type = types[data.type];
 
       cb(load_from_base64(type, data.object));
-    }
+    },
+    dataType: "json"
   });
 }
 
