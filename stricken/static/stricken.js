@@ -1,10 +1,18 @@
+/* Load a thread into the content frame */
+function message_clicked_cb(thread) {
+  return function(evt) {
+    console.log("Someone clicked on " + thread.toString());
+  };
+}
+
+/* end Load a thread into the content frame */
 /* Message Loading */
 function create_message(thread) {
   // el should be a uuid - name pair
   var li = document.createElement("li");
-  $(li).text(thread.identifier).on('click', function(evt) {
-    console.log("Someone clicked on " + thread.toString());
-  }).addClass("child");
+  $(li).text(thread.identifier)
+    .on('click', message_clicked_cb(thread))
+    .addClass("child");
   return li;
 }
 
