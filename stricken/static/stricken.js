@@ -1,3 +1,4 @@
+/* Message Loading */
 function create_message(thread) {
   // el should be a uuid - name pair
   var li = document.createElement("li");
@@ -23,7 +24,9 @@ load_messages = (function() {
     });
   };
 })();
+/* end Message Loading */
 
+/* Object Loading */
 function get_object(name, cb) {
   var types = {
     "update": Stricken.PB.UpdateObject,
@@ -47,3 +50,4 @@ function load_from_base64(object, text) {
     obj.ParseFromStream(stream);
     return obj;
 }
+/* end Object Loading */
