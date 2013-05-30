@@ -3,7 +3,7 @@ function create_message(thread) {
   var li = document.createElement("li");
   $(li).text(thread.identifier).on('click', function(evt) {
     console.log("Someone clicked on " + thread.toString());
-  });
+  }).addClass("child");
   return li;
 }
 
@@ -12,6 +12,7 @@ load_messages = (function() {
 
   return function() {
     var messages = $('#messages');
+    messages.find(".child").remove()
     $.ajax(messages_url, {
       dataType: "json",
       success: function(data, stat, xhr) {
