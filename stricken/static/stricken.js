@@ -63,6 +63,10 @@ function get_object(name, cb) {
     "root": Stricken.PB.RootObject
   };
 
+  if (typeof name !== "string") {
+    name = _.map(name, function(c) { return String.fromCharCode(c); }).join("");
+  }
+
   $.ajax("/objects/" + name, {
     success: function(data) {
       var type = types[data.type];
