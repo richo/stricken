@@ -33,23 +33,6 @@ class ThreadFactory(object):
         pass
 
 
-def title2json(title, body, user):
-    return json.dumps({
-        "type": "title",
-        "title": title,
-        "body": body,
-        "user": user
-        })
-
-
-def reply2json(body, user):
-    return json.dumps({
-        "type": "reply",
-        "body": body,
-        "user": user
-        })
-
-
 class Thread(BaseProtocol):
     def __init__(self, station, uuid):
         self.station = station
