@@ -83,5 +83,10 @@ function load_from_base64(object, text) {
 
     obj.ParseFromStream(stream);
     return obj;
+
+
+    var ostream = new PROTO.Base64Stream();
+    obj.SerializeToStream(ostream);
+    $.ajax('foo', ostream.getString());
 }
 /* end Object Loading */
