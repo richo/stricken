@@ -2,8 +2,18 @@
 <html>
   <head>
     <script src="/static/jquery/jquery.js"></script>
+    <script src="/static/underscore/underscore.js"></script>
     <link rel="stylesheet" href="/static/bootstrap/bootstrap/css/bootstrap.css">
     <script src="/static/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="/static/stricken.js"></script>
+
+    <!-- Load protobuf -->
+    <script src="/static/protobuf.js"></script>
+
+    <!-- Load protobufs -->
+    <script src="/static/proto/root_object.js"></script>
+    <script src="/static/proto/update_object.js"></script>
+
     <title>Stricken</title>
   </head>
   <body>
@@ -11,6 +21,9 @@
           <div class="navbar-inner">
               <div class="container">
                   <a class="brand" href="/">stricken</a>
+                  <ul class="nav">
+                      <li><a id="reload_messages">Reload Messages</a></li>
+                  </ul>
                   <ul class="nav pull-right">
                       <li class="">
                       <a id="current-user-name" href="#">Anonymous Coward</a>
@@ -19,5 +32,23 @@
               </div>
           </div>
       </div>
+      <div style="height: 40px;"></div>
+      <div class="container-fluid">
+          <div class="span3">
+              <div class="sidebar-nav">
+                  <ul class="nav nav-list" id="messages">
+                      <li class="nav-header">messages<span class="pull-right"><a id="new-message">New</a></span></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="span9" id="message-content">
+          </div>
+        </div>
   </body>
+  <script>
+      $('#reload_messages').on('click', function() {
+          load_messages();
+      });
+      load_messages();
+  </script>
 </html>

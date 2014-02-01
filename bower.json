@@ -2,6 +2,7 @@
   "name": "stricken",
   "dependencies": {
     "jquery": "~2",
-    "bootstrap": "~2.3"
+    "bootstrap": "~2.3",
+    "underscore": "~1.4"
   }
 }
